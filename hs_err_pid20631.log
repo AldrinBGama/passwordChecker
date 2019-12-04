@@ -1,0 +1,383 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 130023424 bytes for committing reserved memory.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_linux.cpp:2884), pid=20631, tid=20636
+#
+# JRE version:  (11.0.4+10) (build )
+# Java VM: OpenJDK 64-Bit Server VM (11.0.4+10-b304.77, mixed mode, aot, sharing, tiered, compressed oops, g1 gc, linux-amd64)
+# Core dump will be written. Default location: Core dumps may be processed with "/usr/share/apport/apport %p %s %c %d %P" (or dumping to /home/recruit/Desktop/passwordChecker/core.20631)
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Dfile.encoding=UTF-8 -Duser.country=ZA -Duser.language=en -Duser.variant Main
+
+Host: Intel(R) Core(TM) i3-4130T CPU @ 2.90GHz, 4 cores, 7G, Ubuntu 18.04.3 LTS
+Time: Wed Dec  4 15:14:06 2019 SAST elapsed time: 0 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007fbaa4012000):  JavaThread "Unknown thread" [_thread_in_vm, id=20636, stack(0x00007fbaad3bd000,0x00007fbaad4be000)]
+
+Stack: [0x00007fbaad3bd000,0x00007fbaad4be000],  sp=0x00007fbaad4bc220,  free space=1020k
+Native frames: (J=compiled Java code, A=aot compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0xd9777a]  VMError::report_and_die(int, char const*, char const*, __va_list_tag*, Thread*, unsigned char*, void*, void*, char const*, int, unsigned long)+0x18a
+V  [libjvm.so+0xd98613]  VMError::report_and_die(Thread*, char const*, int, unsigned long, VMErrorType, char const*, __va_list_tag*)+0x43
+V  [libjvm.so+0x698dc8]  report_vm_out_of_memory(char const*, int, unsigned long, VMErrorType, char const*, ...)+0xe8
+V  [libjvm.so+0xb9e069]  os::pd_commit_memory_or_exit(char*, unsigned long, unsigned long, bool, char const*)+0xe9
+V  [libjvm.so+0xb956bd]  os::commit_memory_or_exit(char*, unsigned long, unsigned long, bool, char const*)+0x1d
+V  [libjvm.so+0x7a0591]  G1PageBasedVirtualSpace::commit_preferred_pages(unsigned long, unsigned long)+0x71
+V  [libjvm.so+0x7a06e5]  G1PageBasedVirtualSpace::commit_internal(unsigned long, unsigned long)+0x85
+V  [libjvm.so+0x7a08da]  G1PageBasedVirtualSpace::commit(unsigned long, unsigned long)+0x10a
+V  [libjvm.so+0x7a8196]  G1RegionsLargerThanCommitSizeMapper::commit_regions(unsigned int, unsigned long, WorkGang*)+0x46
+V  [libjvm.so+0x8108a8]  HeapRegionManager::commit_regions(unsigned int, unsigned long, WorkGang*)+0x88
+V  [libjvm.so+0x811404]  HeapRegionManager::make_regions_available(unsigned int, unsigned int, WorkGang*)+0x34
+V  [libjvm.so+0x811909]  HeapRegionManager::expand_by(unsigned int, WorkGang*)+0x79
+V  [libjvm.so+0x764260]  G1CollectedHeap::expand(unsigned long, WorkGang*, double*)+0xc0
+V  [libjvm.so+0x764955]  G1CollectedHeap::initialize()+0x695
+V  [libjvm.so+0xd5ae81]  Universe::initialize_heap()+0x41
+V  [libjvm.so+0xd5b131]  universe_init()+0x41
+V  [libjvm.so+0x8271ef]  init_globals()+0x5f
+V  [libjvm.so+0xd3871c]  Threads::create_vm(JavaVMInitArgs*, bool*)+0x3dc
+V  [libjvm.so+0x8ce74c]  JNI_CreateJavaVM+0x5c
+C  [libjli.so+0x4814]  JavaMain+0x84
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x000000000183f030, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x00007fbaa4028000 GCTaskThread "GC Thread#0" [stack: 0x00007fbaa93bb000,0x00007fbaa94bb000] [id=20637]
+  0x00007fbaa4059000 ConcurrentGCThread "G1 Main Marker" [stack: 0x00007fbaa8327000,0x00007fbaa8427000] [id=20638]
+  0x00007fbaa405a800 ConcurrentGCThread "G1 Conc#0" [stack: 0x00007fbaa8225000,0x00007fbaa8325000] [id=20639]
+
+[error occurred during error reporting (printing all threads), id 0xb, SIGSEGV (0xb) at pc=0x00007fbaab9e2465]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00007fbaa400e680] Heap_lock - owner thread: 0x00007fbaa4012000
+
+Heap address: 0x0000000084c00000, size: 1972 MB, Compressed Oops mode: Non-zero based: 0x0000000084c00000
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+00400000-00401000 r-xp 00000000 08:01 3281568                            /home/recruit/idea-IC-192.7142.36/jbr/bin/java
+00601000-00602000 r--p 00001000 08:01 3281568                            /home/recruit/idea-IC-192.7142.36/jbr/bin/java
+00602000-00603000 rw-p 00002000 08:01 3281568                            /home/recruit/idea-IC-192.7142.36/jbr/bin/java
+01827000-01848000 rw-p 00000000 00:00 0                                  [heap]
+8c800000-100000000 ---p 00000000 00:00 0 
+7fba7c000000-7fba7c021000 rw-p 00000000 00:00 0 
+7fba7c021000-7fba80000000 ---p 00000000 00:00 0 
+7fba82000000-7fba84000000 rw-p 00000000 00:00 0 
+7fba84000000-7fba84021000 rw-p 00000000 00:00 0 
+7fba84021000-7fba88000000 ---p 00000000 00:00 0 
+7fba88260000-7fba8c000000 ---p 00000000 00:00 0 
+7fba8c000000-7fba8c021000 rw-p 00000000 00:00 0 
+7fba8c021000-7fba90000000 ---p 00000000 00:00 0 
+7fba90bca000-7fba91150000 rw-p 00000000 00:00 0 
+7fba91150000-7fba913c0000 rwxp 00000000 00:00 0 
+7fba913c0000-7fba916e0000 ---p 00000000 00:00 0 
+7fba916e0000-7fba91950000 rwxp 00000000 00:00 0 
+7fba91950000-7fba98c18000 ---p 00000000 00:00 0 
+7fba98c18000-7fba98e88000 rwxp 00000000 00:00 0 
+7fba98e88000-7fbaa0150000 ---p 00000000 00:00 0 
+7fbaa0150000-7fbaa4000000 r--s 00000000 08:01 2498616                    /home/recruit/idea-IC-192.7142.36/jbr/lib/modules
+7fbaa4000000-7fbaa4078000 rw-p 00000000 00:00 0 
+7fbaa4078000-7fbaa8000000 ---p 00000000 00:00 0 
+7fbaa8021000-7fbaa8223000 rw-p 00000000 00:00 0 
+7fbaa8223000-7fbaa8224000 ---p 00000000 00:00 0 
+7fbaa8224000-7fbaa8325000 rw-p 00000000 00:00 0 
+7fbaa8325000-7fbaa8326000 ---p 00000000 00:00 0 
+7fbaa8326000-7fbaa8427000 rw-p 00000000 00:00 0 
+7fbaa8427000-7fbaa8fb5000 ---p 00000000 00:00 0 
+7fbaa8fb5000-7fbaa93b9000 rw-p 00000000 00:00 0 
+7fbaa93b9000-7fbaa93ba000 ---p 00000000 00:00 0 
+7fbaa93ba000-7fbaa94c0000 rw-p 00000000 00:00 0 
+7fbaa94c0000-7fbaa95a6000 ---p 00000000 00:00 0 
+7fbaa95a6000-7fbaa95ab000 rw-p 00000000 00:00 0 
+7fbaa95ab000-7fbaa9691000 ---p 00000000 00:00 0 
+7fbaa9691000-7fbaa9696000 r-xp 00000000 08:01 2498595                    /home/recruit/idea-IC-192.7142.36/jbr/lib/libjimage.so
+7fbaa9696000-7fbaa9896000 ---p 00005000 08:01 2498595                    /home/recruit/idea-IC-192.7142.36/jbr/lib/libjimage.so
+7fbaa9896000-7fbaa9897000 r--p 00005000 08:01 2498595                    /home/recruit/idea-IC-192.7142.36/jbr/lib/libjimage.so
+7fbaa9897000-7fbaa9898000 rw-p 00006000 08:01 2498595                    /home/recruit/idea-IC-192.7142.36/jbr/lib/libjimage.so
+7fbaa9898000-7fbaa989f000 r-xp 00000000 08:01 2498615                    /home/recruit/idea-IC-192.7142.36/jbr/lib/libzip.so
+7fbaa989f000-7fbaa9a9e000 ---p 00007000 08:01 2498615                    /home/recruit/idea-IC-192.7142.36/jbr/lib/libzip.so
+7fbaa9a9e000-7fbaa9a9f000 r--p 00006000 08:01 2498615                    /home/recruit/idea-IC-192.7142.36/jbr/lib/libzip.so
+7fbaa9a9f000-7fbaa9aa0000 rw-p 00007000 08:01 2498615                    /home/recruit/idea-IC-192.7142.36/jbr/lib/libzip.so
+7fbaa9aa0000-7fbaa9aab000 r-xp 00000000 08:01 3150946                    /lib/x86_64-linux-gnu/libnss_files-2.27.so
+7fbaa9aab000-7fbaa9caa000 ---p 0000b000 08:01 3150946                    /lib/x86_64-linux-gnu/libnss_files-2.27.so
+7fbaa9caa000-7fbaa9cab000 r--p 0000a000 08:01 3150946                    /lib/x86_64-linux-gnu/libnss_files-2.27.so
+7fbaa9cab000-7fbaa9cac000 rw-p 0000b000 08:01 3150946                    /lib/x86_64-linux-gnu/libnss_files-2.27.so
+7fbaa9cac000-7fbaa9cb2000 rw-p 00000000 00:00 0 
+7fbaa9cb2000-7fbaa9cc9000 r-xp 00000000 08:01 3150940                    /lib/x86_64-linux-gnu/libnsl-2.27.so
+7fbaa9cc9000-7fbaa9ec8000 ---p 00017000 08:01 3150940                    /lib/x86_64-linux-gnu/libnsl-2.27.so
+7fbaa9ec8000-7fbaa9ec9000 r--p 00016000 08:01 3150940                    /lib/x86_64-linux-gnu/libnsl-2.27.so
+7fbaa9ec9000-7fbaa9eca000 rw-p 00017000 08:01 3150940                    /lib/x86_64-linux-gnu/libnsl-2.27.so
+7fbaa9eca000-7fbaa9ecc000 rw-p 00000000 00:00 0 
+7fbaa9ecc000-7fbaa9ed7000 r-xp 00000000 08:01 3150957                    /lib/x86_64-linux-gnu/libnss_nis-2.27.so
+7fbaa9ed7000-7fbaaa0d6000 ---p 0000b000 08:01 3150957                    /lib/x86_64-linux-gnu/libnss_nis-2.27.so
+7fbaaa0d6000-7fbaaa0d7000 r--p 0000a000 08:01 3150957                    /lib/x86_64-linux-gnu/libnss_nis-2.27.so
+7fbaaa0d7000-7fbaaa0d8000 rw-p 0000b000 08:01 3150957                    /lib/x86_64-linux-gnu/libnss_nis-2.27.so
+7fbaaa0d8000-7fbaaa0e0000 r-xp 00000000 08:01 3150942                    /lib/x86_64-linux-gnu/libnss_compat-2.27.so
+7fbaaa0e0000-7fbaaa2e0000 ---p 00008000 08:01 3150942                    /lib/x86_64-linux-gnu/libnss_compat-2.27.so
+7fbaaa2e0000-7fbaaa2e1000 r--p 00008000 08:01 3150942                    /lib/x86_64-linux-gnu/libnss_compat-2.27.so
+7fbaaa2e1000-7fbaaa2e2000 rw-p 00009000 08:01 3150942                    /lib/x86_64-linux-gnu/libnss_compat-2.27.so
+7fbaaa2e2000-7fbaaa30b000 r-xp 00000000 08:01 2498585                    /home/recruit/idea-IC-192.7142.36/jbr/lib/libjava.so
+7fbaaa30b000-7fbaaa50a000 ---p 00029000 08:01 2498585                    /home/recruit/idea-IC-192.7142.36/jbr/lib/libjava.so
+7fbaaa50a000-7fbaaa50b000 r--p 00028000 08:01 2498585                    /home/recruit/idea-IC-192.7142.36/jbr/lib/libjava.so
+7fbaaa50b000-7fbaaa50d000 rw-p 00029000 08:01 2498585                    /home/recruit/idea-IC-192.7142.36/jbr/lib/libjava.so
+7fbaaa50d000-7fbaaa51a000 r-xp 00000000 08:01 2498614                    /home/recruit/idea-IC-192.7142.36/jbr/lib/libverify.so
+7fbaaa51a000-7fbaaa719000 ---p 0000d000 08:01 2498614                    /home/recruit/idea-IC-192.7142.36/jbr/lib/libverify.so
+7fbaaa719000-7fbaaa71b000 r--p 0000c000 08:01 2498614                    /home/recruit/idea-IC-192.7142.36/jbr/lib/libverify.so
+7fbaaa71b000-7fbaaa71c000 rw-p 0000e000 08:01 2498614                    /home/recruit/idea-IC-192.7142.36/jbr/lib/libverify.so
+7fbaaa71c000-7fbaaa723000 r-xp 00000000 08:01 3150997                    /lib/x86_64-linux-gnu/librt-2.27.so
+7fbaaa723000-7fbaaa922000 ---p 00007000 08:01 3150997                    /lib/x86_64-linux-gnu/librt-2.27.so
+7fbaaa922000-7fbaaa923000 r--p 00006000 08:01 3150997                    /lib/x86_64-linux-gnu/librt-2.27.so
+7fbaaa923000-7fbaaa924000 rw-p 00007000 08:01 3150997                    /lib/x86_64-linux-gnu/librt-2.27.so
+7fbaaa924000-7fbaaa93b000 r-xp 00000000 08:01 3150893                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fbaaa93b000-7fbaaab3a000 ---p 00017000 08:01 3150893                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fbaaab3a000-7fbaaab3b000 r--p 00016000 08:01 3150893                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fbaaab3b000-7fbaaab3c000 rw-p 00017000 08:01 3150893                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fbaaab3c000-7fbaaacd9000 r-xp 00000000 08:01 3150919                    /lib/x86_64-linux-gnu/libm-2.27.so
+7fbaaacd9000-7fbaaaed8000 ---p 0019d000 08:01 3150919                    /lib/x86_64-linux-gnu/libm-2.27.so
+7fbaaaed8000-7fbaaaed9000 r--p 0019c000 08:01 3150919                    /lib/x86_64-linux-gnu/libm-2.27.so
+7fbaaaed9000-7fbaaaeda000 rw-p 0019d000 08:01 3150919                    /lib/x86_64-linux-gnu/libm-2.27.so
+7fbaaaeda000-7fbaab053000 r-xp 00000000 08:01 1581892                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25
+7fbaab053000-7fbaab253000 ---p 00179000 08:01 1581892                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25
+7fbaab253000-7fbaab25d000 r--p 00179000 08:01 1581892                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25
+7fbaab25d000-7fbaab25f000 rw-p 00183000 08:01 1581892                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25
+7fbaab25f000-7fbaab263000 rw-p 00000000 00:00 0 
+7fbaab263000-7fbaac30c000 r-xp 00000000 08:01 3152592                    /home/recruit/idea-IC-192.7142.36/jbr/lib/server/libjvm.so
+7fbaac30c000-7fbaac50c000 ---p 010a9000 08:01 3152592                    /home/recruit/idea-IC-192.7142.36/jbr/lib/server/libjvm.so
+7fbaac50c000-7fbaac5da000 r--p 010a9000 08:01 3152592                    /home/recruit/idea-IC-192.7142.36/jbr/lib/server/libjvm.so
+7fbaac5da000-7fbaac614000 rw-p 01177000 08:01 3152592                    /home/recruit/idea-IC-192.7142.36/jbr/lib/server/libjvm.so
+7fbaac614000-7fbaac66d000 rw-p 00000000 00:00 0 
+7fbaac66d000-7fbaac854000 r-xp 00000000 08:01 3150856                    /lib/x86_64-linux-gnu/libc-2.27.so
+7fbaac854000-7fbaaca54000 ---p 001e7000 08:01 3150856                    /lib/x86_64-linux-gnu/libc-2.27.so
+7fbaaca54000-7fbaaca58000 r--p 001e7000 08:01 3150856                    /lib/x86_64-linux-gnu/libc-2.27.so
+7fbaaca58000-7fbaaca5a000 rw-p 001eb000 08:01 3150856                    /lib/x86_64-linux-gnu/libc-2.27.so
+7fbaaca5a000-7fbaaca5e000 rw-p 00000000 00:00 0 
+7fbaaca5e000-7fbaaca61000 r-xp 00000000 08:01 3150879                    /lib/x86_64-linux-gnu/libdl-2.27.so
+7fbaaca61000-7fbaacc60000 ---p 00003000 08:01 3150879                    /lib/x86_64-linux-gnu/libdl-2.27.so
+7fbaacc60000-7fbaacc61000 r--p 00002000 08:01 3150879                    /lib/x86_64-linux-gnu/libdl-2.27.so
+7fbaacc61000-7fbaacc62000 rw-p 00003000 08:01 3150879                    /lib/x86_64-linux-gnu/libdl-2.27.so
+7fbaacc62000-7fbaacc71000 r-xp 00000000 08:01 2903744                    /home/recruit/idea-IC-192.7142.36/jbr/lib/jli/libjli.so
+7fbaacc71000-7fbaace70000 ---p 0000f000 08:01 2903744                    /home/recruit/idea-IC-192.7142.36/jbr/lib/jli/libjli.so
+7fbaace70000-7fbaace71000 r--p 0000e000 08:01 2903744                    /home/recruit/idea-IC-192.7142.36/jbr/lib/jli/libjli.so
+7fbaace71000-7fbaace72000 rw-p 0000f000 08:01 2903744                    /home/recruit/idea-IC-192.7142.36/jbr/lib/jli/libjli.so
+7fbaace72000-7fbaace8c000 r-xp 00000000 08:01 3150989                    /lib/x86_64-linux-gnu/libpthread-2.27.so
+7fbaace8c000-7fbaad08b000 ---p 0001a000 08:01 3150989                    /lib/x86_64-linux-gnu/libpthread-2.27.so
+7fbaad08b000-7fbaad08c000 r--p 00019000 08:01 3150989                    /lib/x86_64-linux-gnu/libpthread-2.27.so
+7fbaad08c000-7fbaad08d000 rw-p 0001a000 08:01 3150989                    /lib/x86_64-linux-gnu/libpthread-2.27.so
+7fbaad08d000-7fbaad091000 rw-p 00000000 00:00 0 
+7fbaad091000-7fbaad0ad000 r-xp 00000000 08:01 3151028                    /lib/x86_64-linux-gnu/libz.so.1.2.11
+7fbaad0ad000-7fbaad2ac000 ---p 0001c000 08:01 3151028                    /lib/x86_64-linux-gnu/libz.so.1.2.11
+7fbaad2ac000-7fbaad2ad000 r--p 0001b000 08:01 3151028                    /lib/x86_64-linux-gnu/libz.so.1.2.11
+7fbaad2ad000-7fbaad2ae000 rw-p 0001c000 08:01 3151028                    /lib/x86_64-linux-gnu/libz.so.1.2.11
+7fbaad2ae000-7fbaad2d5000 r-xp 00000000 08:01 3150828                    /lib/x86_64-linux-gnu/ld-2.27.so
+7fbaad36f000-7fbaad3b6000 rw-p 00000000 00:00 0 
+7fbaad3b6000-7fbaad3bd000 ---p 00000000 00:00 0 
+7fbaad3bd000-7fbaad3c1000 ---p 00000000 00:00 0 
+7fbaad3c1000-7fbaad4c2000 rw-p 00000000 00:00 0 
+7fbaad4cb000-7fbaad4d3000 rw-s 00000000 08:01 1048776                    /tmp/hsperfdata_recruit/20631
+7fbaad4d3000-7fbaad4d4000 ---p 00000000 00:00 0 
+7fbaad4d4000-7fbaad4d5000 r--p 00000000 00:00 0 
+7fbaad4d5000-7fbaad4d6000 r--p 00027000 08:01 3150828                    /lib/x86_64-linux-gnu/ld-2.27.so
+7fbaad4d6000-7fbaad4d7000 rw-p 00028000 08:01 3150828                    /lib/x86_64-linux-gnu/ld-2.27.so
+7fbaad4d7000-7fbaad4d8000 rw-p 00000000 00:00 0 
+7ffe7506c000-7ffe7508d000 rw-p 00000000 00:00 0                          [stack]
+7ffe751f1000-7ffe751f4000 r--p 00000000 00:00 0                          [vvar]
+7ffe751f4000-7ffe751f5000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF-8 -Duser.country=ZA -Duser.language=en -Duser.variant 
+java_command: Main
+java_class_path (initial): /home/recruit/Desktop/passwordChecker/build/classes/java/main:/home/recruit/Desktop/passwordChecker/build/resources/main
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 3                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 1                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 4                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 130023424                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 2067791872                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5830092                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122914074                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122914074                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+     bool UseCompressedClassPointers               = true                                 {lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                                 {lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+USERNAME=recruit
+SHELL=/bin/bash
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0xd98670], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0xd98670], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0xd98670], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0xb99c10], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0xb99c10], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0xd98670], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR2: [libjvm.so+0xb99ab0], sa_mask[0]=00100000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGINT: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGTERM: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGQUIT: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+
+
+---------------  S Y S T E M  ---------------
+
+OS:DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=18.04
+DISTRIB_CODENAME=bionic
+DISTRIB_DESCRIPTION="Ubuntu 18.04.3 LTS"
+uname:Linux 5.0.0-37-generic #40~18.04.1-Ubuntu SMP Thu Nov 14 12:06:39 UTC 2019 x86_64
+libc:glibc 2.27 NPTL 2.27 
+rlimit: STACK 8192k, CORE 0k, NPROC 31334, NOFILE 1048576, AS infinity, DATA infinity, FSIZE infinity
+load average:2.86 1.68 1.25
+
+/proc/meminfo:
+MemTotal:        8069868 kB
+MemFree:          117120 kB
+MemAvailable:      26756 kB
+Buffers:             464 kB
+Cached:           679164 kB
+SwapCached:          360 kB
+Active:          6687804 kB
+Inactive:         859048 kB
+Active(anon):    6672652 kB
+Inactive(anon):   834004 kB
+Active(file):      15152 kB
+Inactive(file):    25044 kB
+Unevictable:         468 kB
+Mlocked:              48 kB
+SwapTotal:       2097148 kB
+SwapFree:              4 kB
+Dirty:               164 kB
+Writeback:             0 kB
+AnonPages:       6867636 kB
+Mapped:           150716 kB
+Shmem:            639252 kB
+KReclaimable:      48996 kB
+Slab:             132080 kB
+SReclaimable:      48996 kB
+SUnreclaim:        83084 kB
+KernelStack:       36048 kB
+PageTables:       126584 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     6132080 kB
+Committed_AS:   22724916 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+Percpu:             1168 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+Hugetlb:               0 kB
+DirectMap4k:      346692 kB
+DirectMap2M:     7946240 kB
+DirectMap1G:     1048576 kB
+
+
+/proc/sys/kernel/threads-max (system-wide limit on the number of threads):
+62668
+
+
+/proc/sys/vm/max_map_count (maximum number of memory map areas a process may have):
+65530
+
+
+/proc/sys/kernel/pid_max (system-wide limit on number of process identifiers):
+32768
+
+
+
+container (cgroup) information:
+container_type: cgroupv1
+cpu_cpuset_cpus: 0-3
+cpu_memory_nodes: 0
+active_processor_count: 4
+cpu_quota: -1
+cpu_period: 100000
+cpu_shares: -1
+memory_limit_in_bytes: -1
+memory_and_swap_limit_in_bytes: -2
+memory_soft_limit_in_bytes: -1
+memory_usage_in_bytes: 7728599040
+memory_max_usage_in_bytes: 70897664
+
+Steal ticks since vm start: 0
+Steal ticks percentage since vm start:  0.000
+
+CPU:total 4 (initial active 4) (2 cores per cpu, 2 threads per core) family 6 model 60 stepping 3, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, fma
+CPU Model and flags from /proc/cpuinfo:
+model name	: Intel(R) Core(TM) i3-4130T CPU @ 2.90GHz
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm cpuid_fault epb invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt dtherm arat pln pts md_clear flush_l1d
+
+Memory: 4k page, physical 8069868k(116064k free), swap 2097148k(0k free)
+
+vm_info: OpenJDK 64-Bit Server VM (11.0.4+10-b304.77) for linux-amd64 JRE (11.0.4+10-b304.77), built on Oct 10 2019 12:18:38 by "" with gcc 4.8.5 20150623 (Red Hat 4.8.5-36)
+
+END.
