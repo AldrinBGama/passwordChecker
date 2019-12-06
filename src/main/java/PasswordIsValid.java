@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class PasswordIsValid {
-    public void passwordIsValid () {
+    public static void passwordIsValid() {
         Scanner userInput = new Scanner( System.in );
         System.out.println("Please enter your password: ");
         String password = userInput.nextLine();
@@ -39,6 +39,7 @@ public class PasswordIsValid {
         if (!valid) {
             System.out.println("Password is invalid.");
         }
-
+        PasswordIsOk passOk = new PasswordIsOk();
+        passOk.passwordIsOk(password);
     }
 }

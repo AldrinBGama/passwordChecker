@@ -7,7 +7,8 @@ public class Main {
         do {
             PasswordIsValid password = new PasswordIsValid();
             password.passwordIsValid();
-            System.out.println("Type 'yes' to run again or anykey to exit");
+
+            System.out.println("Type 'yes' to run again or any key to exit");
             rerun=run.nextLine();
         }while (rerun.equalsIgnoreCase("Yes"));
     }
