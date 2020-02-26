@@ -9,9 +9,11 @@ public class PasswordIsValid {
 
         if (password.length() <= 0 ) {
             System.out.println("Password should exists");
+            valid = false;
         }
         if (password.length() <= 8) {
             System.out.println("Password should be more than 8 characters in length.");
+            valid = false;
         }
         String lowerCaseChars = "(.*[a-z].*)";
         if (!password.matches(lowerCaseChars)) {
